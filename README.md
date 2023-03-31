@@ -1,6 +1,7 @@
 # DevSensei🥷🏻: tool for Testing and Debugging API
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) ![Under Development](https://img.shields.io/badge/status-under%20development-yellow)
+
 
 **DevSensei** testing and debugging app is a versatile tool for developers who want to streamline their workflow and simplify the process of testing and debugging API endpoints. With a user-friendly interface
 
