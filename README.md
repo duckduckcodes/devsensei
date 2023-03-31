@@ -14,6 +14,8 @@
 
 4.  `npm start`
 
+then you can edit `src/renderer`
+
 ## Todo:
 
 - [ ] make user able to create new folders and requests
