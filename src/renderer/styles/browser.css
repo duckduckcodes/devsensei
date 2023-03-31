@@ -1,0 +1,61 @@
+.browser {
+  flex: 1;
+  height: 100%;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.folder {
+  height: 2em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.folder:hover {
+  background-color: rgb(242, 242, 242);
+}
+.options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+.info, .p1 {
+  gap: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.request {
+  height: 2em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.request:hover {
+  background-color: rgb(242, 242, 242);
+}
+
+.type{
+  font-size: 14px;
+}
+
+.relative{
+  position: relative;
+}
