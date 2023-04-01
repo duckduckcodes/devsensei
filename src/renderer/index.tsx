@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import AppWrapper from './App';
 import { Provider } from 'react-redux';
 import store from './store';
 import './index.css'
 const container = document.getElementById('root')!;
 const root = createRoot(container);
-root.render(<App />);
+root.render(<AppWrapper />);
 
 // calling IPC exposed from preload script
 window.electron.ipcRenderer.once('ipc-example', (arg) => {

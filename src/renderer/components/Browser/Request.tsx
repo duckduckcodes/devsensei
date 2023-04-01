@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import "../../styles/browser.css";
-import { GET, PUT, POST, PATCH, DELETE } from "../../Data/reaquest-type";
-import { RequestMethod } from "../../Data/types";
-import { SlOptions } from "react-icons/sl";
-import RequestOptions from "../../widgets/RequestOptions";
+import React, { useEffect, useRef, useState } from 'react';
+import '../../styles/browser/browser.css';
+import { GET, PUT, POST, PATCH, DELETE } from '../../Data/reaquest-type';
+import { RequestMethod } from '../../Data/types';
+import { SlOptions } from 'react-icons/sl';
+import RequestOptions from '../../widgets/RequestOptions';
+import requestStyle from 'renderer/utils/requestStyle';
 
 function Request(props: { title: string; type: string }) {
   const [down, setDown] = useState(false);
@@ -19,34 +20,14 @@ function Request(props: { title: string; type: string }) {
     }
 
     // Bind the event listener
-    window.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener('mousedown', handleClickOutside);
 
     // Unbind the event listener on clean up
     return () => {
-      window.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener('mousedown', handleClickOutside);
     };
   }, [optionsRef]);
-  var style = {};
-  switch (props.type) {
-    case "GET":
-      style = GET;
-      break;
-    case "PUT":
-      style = PUT;
-      break;
-    case "POST":
-      style = POST;
-      break;
-    case "PATCH":
-      style = PATCH;
-      break;
-    case "DELETE":
-      style = DELETE;
-      break;
-
-    default:
-      break;
-  }
+  var style = requestStyle(props.type);
 
   const handleDropDown = () => {
     down ? setDown(false) : setDown(true);
@@ -64,7 +45,7 @@ function Request(props: { title: string; type: string }) {
         <SlOptions />
         {down && (
           <div ref={optionsRef}>
-            {" "}
+            {' '}
             <RequestOptions />
           </div>
         )}
