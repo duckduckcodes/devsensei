@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/options.css";
+import "../styles/general/options.css";
 
 function FolderOptions() {
   return (

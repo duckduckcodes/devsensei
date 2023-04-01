@@ -17,3 +17,18 @@ export interface IFolderProps {
   folders: ISubFolderProps[];
   requests: IRequest[];
 }
+
+export interface ITab {
+  id?: string;
+  request: IRequest;
+}
+
+export interface ColorObject {
+  backgroundColor: string;
+  color: string;
+  paddingTop: string;
+  paddingBottom: string;
+  paddingLeft: string;
+  paddingRight: string;
+  borderRadius: string;
+}

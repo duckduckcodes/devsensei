@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "../../styles/browser.css";
+import "../../styles/browser/browser.css";
 import { SlOptions } from "react-icons/sl";
 import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import Request from "./Request";

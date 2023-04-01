@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/browser.css";
+import "../../styles/browser/browser.css";
 import Folder from "./Folder";
 
 function Browser() {

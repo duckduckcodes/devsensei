@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { IFolderProps, IRequest, ISubFolderProps } from "@/Data/interfaces";
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { IFolderProps, IRequest, ISubFolderProps } from '../Data/interfaces';
 
 export interface CounterState {
   value: number;
@@ -27,14 +27,14 @@ interface AddContentPayload {
 }
 
 const initialState: IFolderProps = {
-  id: "",
-  title: "",
+  id: '',
+  title: '',
   folders: [],
-  requests: []
+  requests: [],
 };
 
 export const fileSLice = createSlice({
-  name: "files",
+  name: 'files',
   initialState,
   reducers: {
     addSubFolder: (state, action: PayloadAction<ISubFolderProps>) => {
@@ -47,7 +47,9 @@ export const fileSLice = createSlice({
       ];
     },
     removeSubeFolder: (state, action: PayloadAction<ISubFolderProps>) => {
-      state.folders.filter((fold) => fold.id != action.payload.id);
+      state.folders.filter(
+        (fold: ISubFolderProps) => fold.id != action.payload.id
+      );
     },
     addRequest: (state, action: PayloadAction<AddContentPayload>) => {
       const { folderIndex, content } = action.payload;
@@ -55,13 +57,13 @@ export const fileSLice = createSlice({
       folder.requests.push(content);
     },
     removeRequest: (state, action: PayloadAction<IRequest>) => {
-      state.folders.forEach((fold) => {
-        fold.requests.filter((cont) => cont.id != action.payload.id);
+      state.folders.forEach((fold: ISubFolderProps) => {
+        fold.requests.filter((cont: IRequest) => cont.id != action.payload.id);
       });
     },
     changeRequestType: (state, action: PayloadAction<IRequest>) => {
-      state.folders.forEach((fold) => {
-        fold.requests.forEach((cont) => {
+      state.folders.forEach((fold: ISubFolderProps) => {
+        fold.requests.forEach((cont: IRequest) => {
           if (cont.id === action.payload.id) {
             cont.type = action.payload.type;
           }
@@ -69,8 +71,8 @@ export const fileSLice = createSlice({
       });
     },
     changeRequestTitle: (state, action: PayloadAction<IRequest>) => {
-      state.folders.forEach((fold) => {
-        fold.requests.forEach((cont) => {
+      state.folders.forEach((fold: ISubFolderProps) => {
+        fold.requests.forEach((cont: IRequest) => {
           if (cont.id === action.payload.id) {
             cont.title = action.payload.title;
           }
@@ -78,7 +80,7 @@ export const fileSLice = createSlice({
       });
     },
     changeSubFolderTitle: (state, action: PayloadAction<ISubFolderProps>) => {
-      state.folders.forEach((sub) => {
+      state.folders.forEach((sub: ISubFolderProps) => {
         if (sub.id == action.payload.id) {
           sub.title = action.payload.title;
         }
