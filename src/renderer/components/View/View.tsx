@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App.css';
 import '../../styles/view/view.css';
 import Tab from './Tab';
+import TabContent from './TabContent';
 
 function View() {
   const activeTabsQueue = [
@@ -16,7 +17,9 @@ function View() {
           <Tab key={res.title} type={res.type} title={res.title} />
         ))}
       </div>
-      <div className="playground"></div>
+      <div className="playground">
+        <TabContent />
+      </div>
     </div>
   );
 }

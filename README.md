@@ -19,11 +19,19 @@ then you can edit `src/renderer`
 
 ## Todo:
 
-- [ ] make user able to create new folders and requests
-- [ ] when user wants to create a new request, show a modal in the middle of the screen to give it a name and a type
-- [ ] make user able to drag and drop folders and requests
-- [ ] make the app responsive
+ -  [ ] **Link tabs to their content:** When a tab is clicked, its corresponding content should be displayed. Make sure to properly associate each tab with its content.
 
+ -  [ ] **Add clicked tab to activeTabQueue:** When a tab is clicked, add it to the activeTabQueue state so that its content remains visible even when the user navigates away.
+
+ -  [ ] **Remove content and tab from activeTabQueue when tab is closed:** When a tab is closed, remove both the tab and its content from the activeTabQueue state so that it no longer appears in the UI.
+
+ -  [ ] **Enable user to create new requests:** Implement a way for the user to create new requests in the UI, such as a form or button. This may require updating the state to store new requests.
+
+ -  [ ] **Enable user to delete requests:** Implement a way for the user to delete existing requests from the UI, such as a button or context menu. Make sure to properly update the state to remove the deleted request.
+
+ -  [ ] **Finish response container code:** Complete any remaining implementation for the response container, such as displaying the response data or handling errors.
+
+ -  [ ] **Fix bugs in request container, specifically related to params:** Identify and fix any bugs in the request container, especially those related to handling request parameters. This may require refactoring or updating existing code.
 ### Example:
 
 ![video](examples/example.png)

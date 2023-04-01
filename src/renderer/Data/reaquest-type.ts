@@ -1,18 +1,48 @@
 import { ColorObject } from './interfaces';
 
 export const GET: ColorObject = {
-  color: 'green',
+  backgroundColor: 'green',
+  color: "white",
+  paddingTop: "3px",
+  paddingBottom: "2px",
+  paddingLeft: "6px",
+  paddingRight: "6px",
+  borderRadius: "6px",
 };
 export const POST: ColorObject = {
-  color: 'purple',
+  backgroundColor: 'purple',
+  color: "white",
+  paddingTop: "3px",
+  paddingBottom: "2px",
+  paddingLeft: "6px",
+  paddingRight: "6px",
+  borderRadius: "6px",
 };
 
 export const DELETE: ColorObject = {
-  color: 'red',
+  backgroundColor: 'red',
+  color: "white",
+  paddingTop: "3px",
+  paddingBottom: "2px",
+  paddingLeft: "6px",
+  paddingRight: "6px",
+  borderRadius: "6px",
 };
 export const PUT: ColorObject = {
-  color: 'yellow',
+  backgroundColor: 'yellow',
+  color: "white",
+  paddingTop: "3px",
+  paddingBottom: "2px",
+  paddingLeft: "6px",
+  paddingRight: "6px",
+  borderRadius: "6px",
 };
 export const PATCH: ColorObject = {
-  color: 'blue',
+  backgroundColor: 'blue',
+  color: "white",
+  paddingTop: "3px",
+  paddingBottom: "2px",
+  paddingLeft: "6px",
+  paddingRight: "6px",
+  borderRadius: "6px",
 };

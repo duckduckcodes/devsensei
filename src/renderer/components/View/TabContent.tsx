@@ -1,15 +1,14 @@
-import React from 'react'
-import '../../styles/view/tabBody.css'
-
+import React from 'react';
+import '../../styles/view/tabBody.css';
+import RequestBody from './Request/RequestBody';
+import ResponseBody from './Response/ResponseBody';
 function TabContent() {
   return (
-    <div className='tab_content'>
-        <div className="request_container">
-
-        </div>
-        <div className="response_container"></div>
+    <div className="tab_content">
+      <RequestBody />
+      <ResponseBody />
     </div>
-  )
+  );
 }
 
-export default TabContent
+export default TabContent;

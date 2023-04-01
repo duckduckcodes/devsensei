@@ -18,11 +18,17 @@ export interface IFolderProps {
   requests: IRequest[];
 }
 
-export interface ITab{
+export interface ITab {
   id?: string;
   request: IRequest;
 }
 
 export interface ColorObject {
+  backgroundColor: string;
   color: string;
+  paddingTop: string;
+  paddingBottom: string;
+  paddingLeft: string;
+  paddingRight: string;
+  borderRadius: string;
 }
