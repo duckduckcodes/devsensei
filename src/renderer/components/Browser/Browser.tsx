@@ -1,38 +1,22 @@
-import React, { useState } from "react";
-import "../../styles/browser/browser.css";
-import Folder from "./Folder";
+import React, { useState } from 'react';
+import '../../styles/browser/browser.css';
+import Folder from './Folder';
+import { useSelector } from 'react-redux';
+import { selectFiles } from 'renderer/features/fileSlice';
 
 function Browser() {
-  const [projects, setProject] = useState([
-    {
-      projectName: "project-v1",
-      requests: [
-        { type: "GET", title: "get one users" },
-        { type: "DELETE", title: "get all users" },
-      ],
-      folders: [
-        {
-          title: "posts",
-          requests: [
-            { type: "GET", title: "get one users" },
-            { type: "DELETE", title: "get all users" },
-          ],
-          folders: [],
-        },
-      ],
-    },
-  ]);
+  const project = useSelector(selectFiles);
+
   return (
     <div className="browser">
       <div className="content"></div>
-      {projects.map((project) => (
-        <Folder
-          key={project.projectName}
-          title={project.projectName}
-          folders={project.folders}
-          requests={project.requests}
-        />
-      ))}
+      <Folder
+        id={project.id}
+        key={project.id}
+        title={project.title}
+        folders={project.folders}
+        requests={project.requests}
+      />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 export interface IRequest {
-  id?: string;
+  id: string;
   title: string;
   type: string;
 }
@@ -31,4 +31,10 @@ export interface ColorObject {
   paddingLeft: string;
   paddingRight: string;
   borderRadius: string;
+}
+
+export interface ITabs {
+  id: string;
+  requests: IRequest[];
+  activeTab: string | undefined;
 }

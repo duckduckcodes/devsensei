@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { IFolderProps, IRequest, ISubFolderProps } from '../Data/interfaces';
+import { RootState } from 'renderer/Data/types';
 
 export interface CounterState {
   value: number;
@@ -27,10 +28,31 @@ interface AddContentPayload {
 }
 
 const initialState: IFolderProps = {
-  id: '',
-  title: '',
-  folders: [],
-  requests: [],
+  title: 'project-v1',
+  requests: [
+    { id: 'QDSQDQDSQD', type: 'GET', title: 'get one users', },
+    { id: 'rgezrgzerg', type: 'DELETE', title: 'get all users', },
+  ],
+  folders: [
+    {
+      title: 'posts',
+      requests: [
+        {
+          id: 'vsdfvsdfvsfdv',
+          type: 'PUT',
+          title: 'get one users',
+          
+        },
+        {
+          id: 'nrthnrnthtrn',
+          type: 'PATCH',
+          title: 'get all users',
+          
+        },
+      ],
+      folders: [],
+    },
+  ],
 };
 
 export const fileSLice = createSlice({
@@ -92,5 +114,7 @@ export const fileSLice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addRequest, addSubFolder, removeRequest, removeSubeFolder } =
   fileSLice.actions;
+
+export const selectFiles = (state: RootState) => state.files;
 
 export default fileSLice.reducer;
