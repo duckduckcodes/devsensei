@@ -29,7 +29,7 @@ export const DELETE: ColorObject = {
   borderRadius: "6px",
 };
 export const PUT: ColorObject = {
-  backgroundColor: 'yellow',
+  backgroundColor: 'orange',
   color: "white",
   paddingTop: "3px",
   paddingBottom: "2px",

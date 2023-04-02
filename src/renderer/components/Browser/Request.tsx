@@ -33,7 +33,8 @@ function Request(props: IRequest) {
   }, [optionsRef]);
   var style = requestStyle(props.type);
 
-  const handleDropDown = () => {
+  const handleDropDown = (event: Event | undefined) => {
+    // event?.stopPropagation()
     down ? setDown(false) : setDown(true);
   };
   const handleRequestClick = (id: string, title: string, type: string) => {
@@ -51,12 +52,12 @@ function Request(props: IRequest) {
         </p>
         <p className="title">{props.title}</p>
       </div>
-      <div className="options" onClick={handleDropDown}>
+      <div className="options" onClick={() => handleDropDown(event)}>
         <SlOptions />
         {down && (
           <div ref={optionsRef}>
             {' '}
-            <RequestOptions />
+            <RequestOptions id={props.id} title={props.title} type={props.type}/>
           </div>
         )}
       </div>

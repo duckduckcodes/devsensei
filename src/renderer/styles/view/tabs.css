@@ -19,7 +19,7 @@
     gap: 20px;
     cursor: pointer;
   
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    /* transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); */
   }
   
   .tab_info:hover {
@@ -27,7 +27,6 @@
   }
   
   .active_tab {
-    background-color: antiquewhite;
     border-top: 3px solid rgb(195, 25, 195);
   }
   .close {

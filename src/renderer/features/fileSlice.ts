@@ -30,15 +30,25 @@ interface AddContentPayload {
 const initialState: IFolderProps = {
   title: 'project-v1',
   requests: [
-    { id: 'QDSQDQDSQD', type: 'GET', title: 'get one users' },
-    { id: 'rgezrgzerg', type: 'DELETE', title: 'get all users' },
+    { id: 'QDSQDQDSQD', type: 'GET', title: 'get one users', },
+    { id: 'rgezrgzerg', type: 'DELETE', title: 'get all users', },
   ],
   folders: [
     {
       title: 'posts',
       requests: [
-        { id: 'vsdfvsdfvsfdv', type: 'GET', title: 'get one users' },
-        { id: 'nrthnrnthtrn', type: 'DELETE', title: 'get all users' },
+        {
+          id: 'vsdfvsdfvsfdv',
+          type: 'PUT',
+          title: 'get one users',
+          
+        },
+        {
+          id: 'nrthnrnthtrn',
+          type: 'PATCH',
+          title: 'get all users',
+          
+        },
       ],
       folders: [],
     },

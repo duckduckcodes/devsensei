@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { IRequest, ITab } from 'renderer/Data/interfaces';
+import { IRequest, ITabs } from 'renderer/Data/interfaces';
 import { RootState } from 'renderer/Data/types';
 import store from 'renderer/store';
 
@@ -23,18 +23,22 @@ export interface CounterState {
 //     ],
 //   };
 
-interface ITabs {
-  id: string;
-  requests: IRequest[];
-}
-
 const tabsQueue: ITabs = {
   id: '',
   requests: [
-    { id: 'zedz', type: 'POST', title: 'create new user user user user' },
+    {
+      id: 'zedz',
+      type: 'POST',
+      title: 'create new user user user user',
+    },
     { id: 'dfgbdv', type: 'GET', title: 'get all users' },
   ],
+  activeTab: 'zedz',
 };
+
+interface ActiveTab {
+  active: boolean;
+}
 
 export const tabSlice = createSlice({
   name: 'tabs',
@@ -52,21 +56,34 @@ export const tabSlice = createSlice({
           type: action.payload.type,
           title: action.payload.title,
         });
+        state.activeTab = action.payload.id;
       }
+    },
+    makeTabActive: (state, action: PayloadAction<{ id: string }>) => {
+      state.activeTab = action.payload.id;
     },
     removeTabFromQueue: (state, action: PayloadAction<{ id: string }>) => {
       console.log('payload', action.payload.id);
-      state.requests.splice(
-        state.requests.findIndex((fold) => fold.id === action.payload.id),
-        1
+      let toBeRemoved = state.requests.findIndex(
+        (fold) => fold.id === action.payload.id
       );
+      state.requests.splice(toBeRemoved, 1);
+      if (state.requests.length === 0) {
+        state.activeTab = undefined;
+      }
       console.log('tabs', state.requests);
     },
   },
 });
 
+//TODO: fix the active bar bug, when user close bar, the new active bar should be the one before it, if it's the first, then it should be the one after it
+
 // Action creators are generated for each case reducer function
-export const { addTab, removeTabFromQueue } = tabSlice.actions;
+export const { addTab, removeTabFromQueue, makeTabActive } = tabSlice.actions;
 
 export const selectTabs = (state: RootState) => state.tabs;
+export const activeTab = (state: RootState, tabId: string) => {
+  return tabId === state.tabs.activeTab;
+};
+
 export default tabSlice.reducer;

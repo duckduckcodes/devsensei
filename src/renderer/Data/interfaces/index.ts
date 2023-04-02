@@ -36,4 +36,5 @@ export interface ColorObject {
 export interface ITabs {
   id: string;
   requests: IRequest[];
+  activeTab: string | undefined;
 }

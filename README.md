@@ -34,7 +34,10 @@ then you can edit `src/renderer`
  -  [ ] **Fix bugs in request container, specifically related to params:** Identify and fix any bugs in the request container, especially those related to handling request parameters. This may require refactoring or updating existing code.
 ### Example:
 
+![example](examples/video.gif)
+
 ![video](examples/example.png)
+
 
 ## Contributing
 
