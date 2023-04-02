@@ -57,7 +57,7 @@ function Folder(props: IFolderProps) {
           {down && (
             <div ref={optionsRef}>
               {' '}
-              <ProjectOptions />
+              <ProjectOptions id={props.id}/>
             </div>
           )}
         </div>

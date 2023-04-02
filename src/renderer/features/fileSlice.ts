@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { IFolderProps, IRequest, ISubFolderProps } from '../Data/interfaces';
 import { RootState } from 'renderer/Data/types';
+const { v4: uuidv4 } = require('uuid');
 
 export interface CounterState {
   value: number;
@@ -28,10 +29,11 @@ interface AddContentPayload {
 }
 
 const initialState: IFolderProps = {
+  id: 'fqsvqdsvdsf',
   title: 'project-v1',
   requests: [
-    { id: 'QDSQDQDSQD', type: 'GET', title: 'get one users', },
-    { id: 'rgezrgzerg', type: 'DELETE', title: 'get all users', },
+    { id: 'QDSQDQDSQD', type: 'GET', title: 'get one users' },
+    { id: 'rgezrgzerg', type: 'DELETE', title: 'get all users' },
   ],
   folders: [
     {
@@ -41,13 +43,11 @@ const initialState: IFolderProps = {
           id: 'vsdfvsdfvsfdv',
           type: 'PUT',
           title: 'get one users',
-          
         },
         {
           id: 'nrthnrnthtrn',
           type: 'PATCH',
           title: 'get all users',
-          
         },
       ],
       folders: [],
@@ -59,24 +59,38 @@ export const fileSLice = createSlice({
   name: 'files',
   initialState,
   reducers: {
-    addSubFolder: (state, action: PayloadAction<ISubFolderProps>) => {
-      state.folders = [
-        ...state.folders,
-        {
-          title: action.payload.title,
-          requests: [],
-        },
-      ];
+    addSubFolder: (
+      state,
+      action: PayloadAction<{ id: string | undefined }>
+    ) => {
+      let folder = state.folders.find((f) => f.id === action.payload.id);
+      folder?.folders?.push({
+        title: 'New Folder',
+        requests: [],
+      });
     },
     removeSubeFolder: (state, action: PayloadAction<ISubFolderProps>) => {
       state.folders.filter(
         (fold: ISubFolderProps) => fold.id != action.payload.id
       );
     },
-    addRequest: (state, action: PayloadAction<AddContentPayload>) => {
-      const { folderIndex, content } = action.payload;
-      const folder = state.folders[folderIndex];
-      folder.requests.push(content);
+    addRequest: (state, action: PayloadAction<{ id: string | undefined }>) => {
+      if (action.payload.id === state.id) {
+        const randomId = uuidv4();
+        const newRequest = { id: randomId, title: 'New request', type: 'GET' };
+        state.requests.push(newRequest);
+      } else {
+        let target = state.folders.findIndex(
+          (fold) => fold.id === action.payload.id
+        );
+        if (target) {
+        }
+        console.log('sqdfqsdf');
+        const randomId = uuidv4();
+        const newRequest = { id: randomId, title: 'New request', type: 'GET' };
+        const folder = state.folders[target];
+        folder.requests.push(newRequest);
+      }
     },
     removeRequest: (state, action: PayloadAction<IRequest>) => {
       state.folders.forEach((fold: ISubFolderProps) => {
@@ -118,3 +132,6 @@ export const { addRequest, addSubFolder, removeRequest, removeSubeFolder } =
 export const selectFiles = (state: RootState) => state.files;
 
 export default fileSLice.reducer;
+
+
+//it's more complicated then i thaught, folders should be iterated through recursively

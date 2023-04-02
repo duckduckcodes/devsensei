@@ -1,11 +1,18 @@
-import React from "react";
-import "../styles/general/options.css";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addRequest } from 'renderer/features/fileSlice';
+import '../styles/general/options.css';
 
-function ProjectOptions() {
+function ProjectOptions(props: {id: string |undefined}) {
+  const dispatch = useDispatch();
+  const addNewRequest = (id: string | undefined) => {
+    dispatch(addRequest({ id }));
+  };
+
   return (
     <div className="project-options">
       <div className="op Add-request">
-        <p>Add request</p>
+        <p onClick={() => addNewRequest(props.id)}>Add request</p>
       </div>
       <div className="op add-folder">
         <p>Add folder</p>
