@@ -21,9 +21,6 @@ then you can edit `src/renderer`
 
  -  [ ] **Link tabs to their content:** When a tab is clicked, its corresponding content should be displayed. Make sure to properly associate each tab with its content.
 
- -  [ ] **Add clicked tab to activeTabQueue:** When a tab is clicked, add it to the activeTabQueue state so that its content remains visible even when the user navigates away.
-
- -  [ ] **Remove content and tab from activeTabQueue when tab is closed:** When a tab is closed, remove both the tab and its content from the activeTabQueue state so that it no longer appears in the UI.
 
  -  [ ] **Enable user to create new requests:** Implement a way for the user to create new requests in the UI, such as a form or button. This may require updating the state to store new requests.
 
@@ -34,7 +31,7 @@ then you can edit `src/renderer`
  -  [ ] **Fix bugs in request container, specifically related to params:** Identify and fix any bugs in the request container, especially those related to handling request parameters. This may require refactoring or updating existing code.
 ### Example:
 
-![example](examples/video.gif)
+
 
 ![video](examples/example.png)
 
