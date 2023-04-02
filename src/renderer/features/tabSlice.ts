@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { IRequest, ITab } from 'renderer/Data/interfaces';
+import { RootState } from 'renderer/Data/types';
+import store from 'renderer/store';
 
 export interface CounterState {
   value: number;
@@ -29,28 +31,42 @@ interface ITabs {
 const tabsQueue: ITabs = {
   id: '',
   requests: [
-    { type: 'POST', title: 'create new user user user user' },
-    { type: 'GET', title: 'get all users' },
+    { id: 'zedz', type: 'POST', title: 'create new user user user user' },
+    { id: 'dfgbdv', type: 'GET', title: 'get all users' },
   ],
 };
 
 export const tabSlice = createSlice({
-  name: 'files',
+  name: 'tabs',
   initialState: tabsQueue,
   reducers: {
-    addTabToQueue: (state, action: PayloadAction<IRequest>) => {
-      state.requests = [
-        ...state.requests,
-        { type: action.payload.type, title: action.payload.title },
-      ];
+    addTab: (
+      state,
+      action: PayloadAction<{ id: string; title: string; type: string }>
+    ) => {
+      console.log('tabs: ', state.requests);
+      let req = state.requests.find((req) => req.id === action.payload.id);
+      if (!req) {
+        state.requests.push({
+          id: action.payload.id,
+          type: action.payload.type,
+          title: action.payload.title,
+        });
+      }
     },
-    removeTabFromeQueue: (state, action: PayloadAction<IRequest>) => {
-      state.requests.filter((fold) => fold.id != action.payload.id);
+    removeTabFromQueue: (state, action: PayloadAction<{ id: string }>) => {
+      console.log('payload', action.payload.id);
+      state.requests.splice(
+        state.requests.findIndex((fold) => fold.id === action.payload.id),
+        1
+      );
+      console.log('tabs', state.requests);
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addTabToQueue, removeTabFromeQueue } = tabSlice.actions;
+export const { addTab, removeTabFromQueue } = tabSlice.actions;
 
+export const selectTabs = (state: RootState) => state.tabs;
 export default tabSlice.reducer;

@@ -5,9 +5,13 @@ import { RequestMethod } from '../../Data/types';
 import { SlOptions } from 'react-icons/sl';
 import RequestOptions from '../../widgets/RequestOptions';
 import requestStyle from 'renderer/utils/requestStyle';
+import { IRequest } from 'renderer/Data/interfaces';
+import { useDispatch } from 'react-redux';
+import { addTab } from 'renderer/features/tabSlice';
 
-function Request(props: { title: string; type: string }) {
+function Request(props: IRequest) {
   const [down, setDown] = useState(false);
+  const dispatch = useDispatch();
   const optionsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     function handleClickOutside(event: any) {
@@ -32,9 +36,15 @@ function Request(props: { title: string; type: string }) {
   const handleDropDown = () => {
     down ? setDown(false) : setDown(true);
   };
-
+  const handleRequestClick = (id: string, title: string, type: string) => {
+    dispatch(addTab({ id, title, type }));
+    console.log('clicked');
+  };
   return (
-    <div className="request">
+    <div
+      onClick={() => handleRequestClick(props.id, props.title, props.type)}
+      className="request"
+    >
       <div className="info">
         <p className="type" style={style}>
           {props.type}
