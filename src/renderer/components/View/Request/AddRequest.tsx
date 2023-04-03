@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { addRequest } from 'renderer/features/fileSlice';
 import { useDispatch } from 'react-redux';
+import '../../../styles/view/AddRequest.css';
 
 export default function AddRequest({ setOpenAddRequest }: any) {
   const [requestMethod, setRequestMethod] = useState('GET');
@@ -22,25 +23,10 @@ export default function AddRequest({ setOpenAddRequest }: any) {
   };
 
   return (
-    <div
-      className="container"
-      style={{
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '100vh',
-        height: '100vh',
-        zIndex: '9999999',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-
-      }}
-    >
+    <div className="container">
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="requestMethod">Request Method:</label>
+        <div className="input">
+          <label htmlFor="requestMethod">Request Method: </label>
           <select
             id="requestMethod"
             value={requestMethod}
@@ -53,8 +39,8 @@ export default function AddRequest({ setOpenAddRequest }: any) {
             <option value="DELETE">PATCH</option>
           </select>
         </div>
-        <div>
-          <label htmlFor="name">Name:</label>
+        <div className="input">
+          <label htmlFor="name">Name: </label>
           <input
             type="text"
             id="name"
@@ -62,10 +48,18 @@ export default function AddRequest({ setOpenAddRequest }: any) {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <button type="button" onClick={() => setOpenAddRequest(false)}>
-          Go Back
-        </button>
-        <button type="submit">Add Request</button>
+        <div className="button-container">
+          <button
+            type="button"
+            className="modalBtn"
+            onClick={() => setOpenAddRequest(false)}
+          >
+            Go Back
+          </button>
+          <button type="submit" className="modalBtn">
+            Add Request
+          </button>
+        </div>
       </form>
     </div>
   );
