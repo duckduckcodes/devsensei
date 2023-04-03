@@ -74,23 +74,9 @@ export const fileSLice = createSlice({
         (fold: ISubFolderProps) => fold.id != action.payload.id
       );
     },
-    addRequest: (state, action: PayloadAction<{ id: string | undefined }>) => {
-      if (action.payload.id === state.id) {
-        const randomId = uuidv4();
-        const newRequest = { id: randomId, title: 'New request', type: 'GET' };
-        state.requests.push(newRequest);
-      } else {
-        let target = state.folders.findIndex(
-          (fold) => fold.id === action.payload.id
-        );
-        if (target) {
-        }
-        console.log('sqdfqsdf');
-        const randomId = uuidv4();
-        const newRequest = { id: randomId, title: 'New request', type: 'GET' };
-        const folder = state.folders[target];
-        folder.requests.push(newRequest);
-      }
+    addRequest: (state, action: PayloadAction<AddContentPayload>) => {
+      const { content } = action.payload;
+      state.requests.push(content);
     },
     removeRequest: (state, action: PayloadAction<IRequest>) => {
       state.folders.forEach((fold: ISubFolderProps) => {
