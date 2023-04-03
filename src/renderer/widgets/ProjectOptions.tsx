@@ -17,10 +17,7 @@ function ProjectOptions(props: {
   return (
     <div className="project-options">
       <div className="op Add-request">
-        <button type="button" onClick={() => props.setOpenAddRequest(true)}>
-          Add request
-        </button>
-        <p onClick={() => addNewRequest(props.id)}>Add request</p>
+        <p onClick={() => props.setOpenAddRequest(true)}>Add request</p>
       </div>
       <div className="op add-folder">
         <p>Add folder</p>

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { addRequest } from 'renderer/features/fileSlice';
 import { useDispatch } from 'react-redux';
+import '../../../styles/view/request.css';
+import { IoMdClose } from 'react-icons/io';
 
 export default function AddRequest({ setOpenAddRequest }: any) {
   const [requestMethod, setRequestMethod] = useState('GET');
-  const [name, setName] = useState('');
+  const [name, setName] = useState('New Request');  // we gotta set a character limit to this
   const dispatch = useDispatch();
 
   const handleSubmit = (event: any) => {
@@ -22,25 +24,14 @@ export default function AddRequest({ setOpenAddRequest }: any) {
   };
 
   return (
-    <div
-      className="container"
-      style={{
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '100vh',
-        height: '100vh',
-        zIndex: '9999999',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-
-      }}
-    >
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="requestMethod">Request Method:</label>
+    <div id="container">
+      <div className="close">
+        <IoMdClose size={"24px"} color="red" onClick={() => setOpenAddRequest(false)}/>
+      </div>
+      <form className="form_container" onSubmit={handleSubmit}>
+        <h1 className='request_title'>{name}</h1>
+        <div className='request_method'>
+          <label htmlFor="requestMethod">Request Method</label>
           <select
             id="requestMethod"
             value={requestMethod}
@@ -54,18 +45,21 @@ export default function AddRequest({ setOpenAddRequest }: any) {
           </select>
         </div>
         <div>
-          <label htmlFor="name">Name:</label>
           <input
+          className='request_name'
             type="text"
             id="name"
+            placeholder='request name'
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <button type="button" onClick={() => setOpenAddRequest(false)}>
-          Go Back
-        </button>
-        <button type="submit">Add Request</button>
+        <div className="buttons">
+          <button className='cancel' type="button" onClick={() => setOpenAddRequest(false)}>
+            Go Back
+          </button>
+          <button className='add' type="submit">Add Request</button>
+        </div>
       </form>
     </div>
   );
