@@ -41,13 +41,13 @@ const initialState: IFolderProps = {
           id: 'vsdfvsdfvsfdv',
           type: 'PUT',
           title: 'get one users',
-          
+
         },
         {
           id: 'nrthnrnthtrn',
           type: 'PATCH',
           title: 'get all users',
-          
+
         },
       ],
       folders: [],
@@ -74,9 +74,8 @@ export const fileSLice = createSlice({
       );
     },
     addRequest: (state, action: PayloadAction<AddContentPayload>) => {
-      const { folderIndex, content } = action.payload;
-      const folder = state.folders[folderIndex];
-      folder.requests.push(content);
+      const { content } = action.payload;
+      state.requests.push(content);
     },
     removeRequest: (state, action: PayloadAction<IRequest>) => {
       state.folders.forEach((fold: ISubFolderProps) => {

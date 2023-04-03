@@ -1,10 +1,11 @@
-import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+import { MemoryRouter as Router, Routes, Route, HashRouter } from 'react-router-dom';
 import './App.css';
 import { useState } from 'react';
 import Browser from './components/Browser/Browser';
 import View from './components/View/View';
 import { Provider } from 'react-redux';
 import store from './store';
+import AddRequest from './components/View/Request/AddRequest';
 
 function Hello() {
   const [count, setCount] = useState(0);
@@ -18,11 +19,12 @@ function Hello() {
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Hello />} />
+        <Route path="/addRequest" element={<AddRequest />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 export default function AppWrapper() {

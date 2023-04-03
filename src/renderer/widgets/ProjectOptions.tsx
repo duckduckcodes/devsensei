@@ -1,11 +1,12 @@
-import React from "react";
-import "../styles/general/options.css";
+import React from 'react';
+import '../styles/general/options.css';
+import { Link } from 'react-router-dom';
 
 function ProjectOptions() {
   return (
     <div className="project-options">
       <div className="op Add-request">
-        <p>Add request</p>
+        <Link to="/addRequest">Add request</Link>
       </div>
       <div className="op add-folder">
         <p>Add folder</p>
