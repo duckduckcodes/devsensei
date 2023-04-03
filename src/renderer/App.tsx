@@ -9,11 +9,21 @@ import AddRequest from './components/View/Request/AddRequest';
 
 function Hello() {
   const [count, setCount] = useState(0);
+  const [openAddRequest, setOpenAddRequest] = useState(false);
+
   return (
-    <div className="App">
-      <Browser />
-      <View />
-    </div>
+    <>
+      <div
+        className="App"
+        style={{
+          opacity: openAddRequest ? 0.15 : 1,
+        }}
+      >
+        <Browser setOpenAddRequest={setOpenAddRequest} />
+        <View />
+      </div>
+      {openAddRequest && <AddRequest setOpenAddRequest={setOpenAddRequest} />}
+    </>
   );
 }
 

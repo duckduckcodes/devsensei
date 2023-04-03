@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { addRequest } from 'renderer/features/fileSlice';
 import { useDispatch } from 'react-redux';
 
-export default function AddRequest() {
+export default function AddRequest({ setOpenAddRequest }: any) {
   const [requestMethod, setRequestMethod] = useState('GET');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
@@ -22,40 +21,51 @@ export default function AddRequest() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
+    <div
+      className="container"
       style={{
-        position: 'absolute',
+        position: 'fixed',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
+        width: '100vh',
+        height: '100vh',
+        zIndex: '9999999',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+
       }}
     >
-      <div>
-        <label htmlFor="requestMethod">Request Method:</label>
-        <select
-          id="requestMethod"
-          value={requestMethod}
-          onChange={(e) => setRequestMethod(e.target.value)}
-        >
-          <option value="GET">GET</option>
-          <option value="POST">POST</option>
-          <option value="PUT">PUT</option>
-          <option value="DELETE">DELETE</option>
-          <option value="DELETE">PATCH</option>
-        </select>
-      </div>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <Link to="/">Go Back</Link>
-      <button type="submit">Add Request</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="requestMethod">Request Method:</label>
+          <select
+            id="requestMethod"
+            value={requestMethod}
+            onChange={(e) => setRequestMethod(e.target.value)}
+          >
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+            <option value="DELETE">PATCH</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <button type="button" onClick={() => setOpenAddRequest(false)}>
+          Go Back
+        </button>
+        <button type="submit">Add Request</button>
+      </form>
+    </div>
   );
 }

@@ -5,7 +5,10 @@ import { useDispatch } from 'react-redux';
 import { addRequest } from 'renderer/features/fileSlice';
 import '../styles/general/options.css';
 
-function ProjectOptions(props: {id: string |undefined}) {
+function ProjectOptions(props: {
+  id: string | undefined;
+  setOpenAddRequest: any;
+}) {
   const dispatch = useDispatch();
   const addNewRequest = (id: string | undefined) => {
     dispatch(addRequest({ id }));
@@ -14,7 +17,9 @@ function ProjectOptions(props: {id: string |undefined}) {
   return (
     <div className="project-options">
       <div className="op Add-request">
-        <Link to="/addRequest">Add request</Link>
+        <button type="button" onClick={() => props.setOpenAddRequest(true)}>
+          Add request
+        </button>
         <p onClick={() => addNewRequest(props.id)}>Add request</p>
       </div>
       <div className="op add-folder">
