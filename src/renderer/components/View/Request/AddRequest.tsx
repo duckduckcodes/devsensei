@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { addRequest } from 'renderer/features/fileSlice';
 import { useDispatch } from 'react-redux';
+import '../../../styles/view/AddRequest.css';
 import '../../../styles/view/request.css';
 import { IoMdClose } from 'react-icons/io';
 
@@ -24,6 +25,10 @@ export default function AddRequest({ setOpenAddRequest }: any) {
   };
 
   return (
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <div className="input">
+          <label htmlFor="requestMethod">Request Method: </label>
     <div id="container">
       <div className="close">
         <IoMdClose size={"24px"} color="red" onClick={() => setOpenAddRequest(false)}/>
@@ -44,6 +49,8 @@ export default function AddRequest({ setOpenAddRequest }: any) {
             <option value="DELETE">PATCH</option>
           </select>
         </div>
+        <div className="input">
+          <label htmlFor="name">Name: </label>
         <div>
           <input
           className='request_name'
@@ -54,6 +61,17 @@ export default function AddRequest({ setOpenAddRequest }: any) {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
+        <div className="button-container">
+          <button
+            type="button"
+            className="modalBtn"
+            onClick={() => setOpenAddRequest(false)}
+          >
+            Go Back
+          </button>
+          <button type="submit" className="modalBtn">
+            Add Request
+          </button>
         <div className="buttons">
           <button className='cancel' type="button" onClick={() => setOpenAddRequest(false)}>
             Go Back
