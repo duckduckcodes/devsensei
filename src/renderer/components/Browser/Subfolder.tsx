@@ -55,7 +55,7 @@ function Subfolder(props: ISubFolderProps) {
           {down && (
             <div ref={optionsRef}>
               {' '}
-              <FolderOptions />
+              <FolderOptions id={props.id}/>
             </div>
           )}
         </div>

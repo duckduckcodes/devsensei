@@ -1,13 +1,25 @@
-import React from "react";
-import "../styles/general/options.css";
+import React from 'react';
+import '../styles/general/options.css';
+import { useDispatch } from 'react-redux';
+import { addRequest, addSubFolder } from 'renderer/features/fileSlice';
 
-function FolderOptions() {
+function FolderOptions(props: { id: string | undefined }) {
+  const dispatch = useDispatch();
+  const addNewRequest = (id: string | undefined) => {
+    dispatch(addRequest({id}));
+  };
+
+  const addNewFolder = (id: string | undefined) => {
+    dispatch(addSubFolder({id}));
+  };
+
+
   return (
     <div className="project-options">
       <div className="op Add-request">
-        <p>Add request</p>
+        <p  onClick={() => addNewRequest(props.id)} >Add request</p>
       </div>
-      <div className="op add-folder">
+      <div onClick={() => addNewFolder(props.id)} className="op add-folder">
         <p>Add folder</p>
       </div>
       <div className="op rename">
