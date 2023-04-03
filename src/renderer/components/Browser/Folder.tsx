@@ -57,7 +57,7 @@ function Folder(props: IFolderProps) {
           {down && (
             <div ref={optionsRef}>
               {' '}
-              <ProjectOptions id={props.id}/>
+              <ProjectOptions id={props.id} setOpenAddRequest={props.setOpenAddRequest} />
             </div>
           )}
         </div>

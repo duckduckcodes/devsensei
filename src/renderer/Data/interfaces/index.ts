@@ -16,6 +16,7 @@ export interface IFolderProps {
   title: string;
   folders: ISubFolderProps[];
   requests: IRequest[];
+  setOpenAddRequest: any;
 }
 
 export interface ITab {
