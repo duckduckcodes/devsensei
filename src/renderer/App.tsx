@@ -32,7 +32,6 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Hello />} />
-        <Route path="/addRequest" element={<AddRequest />} />
       </Routes>
     </HashRouter>
   );

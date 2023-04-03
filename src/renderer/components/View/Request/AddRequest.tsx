@@ -17,6 +17,7 @@ export default function AddRequest({ setOpenAddRequest }: any) {
     };
 
     dispatch(addRequest({ folderIndex: 0, content: requestObj }));
+    setOpenAddRequest(false);
     // Add your own logic here to handle the form submission
   };
 
