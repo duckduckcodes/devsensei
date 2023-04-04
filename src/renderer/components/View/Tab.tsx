@@ -39,7 +39,7 @@ function Tab(props: IRequest) {
           {props.title}
         </p>
       </div>
-      <div onClick={() => handleRemoveTab(props.id)} className="close">
+      <div onClick={() => handleRemoveTab(props.id)} className="close_tab">
         <IoMdClose color="red" />
       </div>
     </div>
