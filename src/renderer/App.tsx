@@ -17,6 +17,7 @@ function Hello() {
         className="App"
         style={{
           opacity: openAddRequest ? 0.15 : 1,
+          pointerEvents: openAddRequest ? 'none' : 'auto',
         }}
       >
         <Browser setOpenAddRequest={setOpenAddRequest} />
