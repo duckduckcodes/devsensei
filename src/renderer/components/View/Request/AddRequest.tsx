@@ -7,7 +7,7 @@ import { IoMdClose } from 'react-icons/io';
 
 export default function AddRequest({ setOpenAddRequest }: any) {
   const [requestMethod, setRequestMethod] = useState('GET');
-  const [name, setName] = useState('New Request');  // we gotta set a character limit to this
+  const [name, setName] = useState('New Request'); // we gotta set a character limit to this
   const dispatch = useDispatch();
 
   const handleSubmit = (event: any) => {
@@ -25,17 +25,17 @@ export default function AddRequest({ setOpenAddRequest }: any) {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <div className="input">
-          <label htmlFor="requestMethod">Request Method: </label>
     <div id="container">
       <div className="close">
-        <IoMdClose size={"24px"} color="red" onClick={() => setOpenAddRequest(false)}/>
+        <IoMdClose
+          size="24px"
+          color="red"
+          onClick={() => setOpenAddRequest(false)}
+        />
       </div>
       <form className="form_container" onSubmit={handleSubmit}>
-        <h1 className='request_title'>{name}</h1>
-        <div className='request_method'>
+        <h1 className="request_title">{name}</h1>
+        <div className="request_method">
           <label htmlFor="requestMethod">Request Method</label>
           <select
             id="requestMethod"
@@ -49,34 +49,27 @@ export default function AddRequest({ setOpenAddRequest }: any) {
             <option value="DELETE">PATCH</option>
           </select>
         </div>
-        <div className="input">
-          <label htmlFor="name">Name: </label>
         <div>
           <input
-          className='request_name'
+            className="request_name"
             type="text"
             id="name"
-            placeholder='request name'
+            placeholder="request name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className="button-container">
+        <div className="buttons">
           <button
+            className="cancel"
             type="button"
-            className="modalBtn"
             onClick={() => setOpenAddRequest(false)}
           >
             Go Back
           </button>
-          <button type="submit" className="modalBtn">
+          <button className="add" type="submit">
             Add Request
           </button>
-        <div className="buttons">
-          <button className='cancel' type="button" onClick={() => setOpenAddRequest(false)}>
-            Go Back
-          </button>
-          <button className='add' type="submit">Add Request</button>
         </div>
       </form>
     </div>
