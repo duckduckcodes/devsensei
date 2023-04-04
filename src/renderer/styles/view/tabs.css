@@ -29,7 +29,7 @@
   .active_tab {
     border-top: 3px solid rgb(195, 25, 195);
   }
-  .close {
+  .close_tab {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -39,7 +39,7 @@
     padding: 1px;
   }
   
-  .close:hover {
+  .close_tab:hover {
     background-color: white;
   }
   
