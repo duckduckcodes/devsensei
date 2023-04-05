@@ -11,7 +11,7 @@ function View() {
   const activeTabsQueue: ITabs = useSelector(selectTabs);
   // const [activeTabsQueue, setActiveTabsQueue] = useState();
 
-  
+
 
   return (
     <div className="view">

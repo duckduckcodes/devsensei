@@ -53,6 +53,7 @@ const initialState: IFolderProps = {
       folders: [],
     },
   ],
+  setOpenAddRequest: undefined
 };
 
 export const fileSLice = createSlice({

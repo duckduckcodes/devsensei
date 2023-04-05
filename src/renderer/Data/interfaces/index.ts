@@ -39,3 +39,10 @@ export interface ITabs {
   requests: IRequest[];
   activeTab: string | undefined;
 }
+
+
+export interface IEnvironementVariables{
+  id: string;
+  name: string;
+  value: string;
+}

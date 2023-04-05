@@ -76,3 +76,48 @@ button {
   padding-inline: 8px;
   cursor: pointer;
 }
+
+
+.search_bar{
+  border: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 2em;
+  align-items: center;
+  justify-content: center;
+}
+.search_input_container, .search_input{
+  width: 100%;
+}
+
+.search_input{
+  height: 3rem;
+  padding-left: 1em;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: green;
+  border-radius: 10px;
+  height: 3rem;
+  padding: 0 1.2em;
+  margin: 0 .4em;
+  cursor: pointer;
+  transition: all .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+.button:hover{
+
+  background-color: rgb(9, 169, 9);
+
+}
